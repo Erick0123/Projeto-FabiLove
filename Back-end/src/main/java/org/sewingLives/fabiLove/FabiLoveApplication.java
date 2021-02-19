@@ -1,13 +1,13 @@
-package LojaDaMamae.demo;
+package org.sewingLives.fabiLove;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LojaDaMamaeApplication {
+public class FabiLoveApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LojaDaMamaeApplication.class, args);
+		SpringApplication.run(FabiLoveApplication.class, args);
 	}
 
 }

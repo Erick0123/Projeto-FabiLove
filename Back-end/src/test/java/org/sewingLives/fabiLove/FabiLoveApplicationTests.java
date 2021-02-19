@@ -1,10 +1,10 @@
-package LojaDaMamae.demo;
+package org.sewingLives.fabiLove;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LojaDaMamaeApplicationTests {
+class FabiLoveApplicationTests {
 
 	@Test
 	void contextLoads() {

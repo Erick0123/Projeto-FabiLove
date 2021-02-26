@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/pedidos")
-@CrossOrigin("*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 public class PedidosController {
 
 	@Autowired
 	public PedidosRepository pedidosRepository;
 
+	//-------------Get: mostrar os dados do pedido-------------------------//
 	@GetMapping("/todos")
 	public ResponseEntity<List<Pedidos>> getAll(){
 		return ResponseEntity.ok(pedidosRepository.findAll());

@@ -5,16 +5,19 @@ import java.util.List;
 import org.sewingLives.fabiLove.model.Usuarios;
 import org.sewingLives.fabiLove.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin("*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 public class UsuariosController {
 
 	//injetando o repositorio de usuario//
@@ -34,6 +37,10 @@ public class UsuariosController {
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
+	/*@PostMapping("/cadastrar")
+	public ResponseEntity<Usuarios> post(@RequestBody Usuarios usuario){
+		return ResponseEntity.status(HttpStatus.CREATED).body(body)
+	}*/
 	
 	
 }

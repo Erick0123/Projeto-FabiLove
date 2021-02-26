@@ -32,7 +32,7 @@ public class Categoria {
 
 	//relaçao com a tabela produto, diz que uma categoria pode ter varios produtos,
 		//com o fetch ele busca apenas infromaçoes necessarias do produto para não sobrecarrega o DataBase
-		@OneToMany(fetch = FetchType.LAZY)
+		@OneToMany(mappedBy = "categoria",fetch = FetchType.LAZY)
 		@JsonIgnoreProperties("categoria")
 		private List<Produtos>produtos;
 		

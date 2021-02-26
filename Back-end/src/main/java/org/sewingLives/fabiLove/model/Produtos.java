@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,7 +21,6 @@ public class Produtos {
 		private Long id;
 		
 		@Column
-		@NotNull
 		private String nome;
 		
 		@Column
@@ -38,7 +36,7 @@ public class Produtos {
 		private double preco;
 		
 		@Column
-		private double parcelamento;
+		private String parcelamento;
 		
 		@Column
 		private int estoque;
@@ -102,11 +100,11 @@ public class Produtos {
 			this.preco = preco;
 		}
 
-		public double getParcelamento() {
+		public String getParcelamento() {
 			return parcelamento;
 		}
 
-		public void setParcelamento(double parcelamento) {
+		public void setParcelamento(String parcelamento) {
 			this.parcelamento = parcelamento;
 		}
 

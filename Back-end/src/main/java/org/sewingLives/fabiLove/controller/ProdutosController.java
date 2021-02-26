@@ -5,16 +5,19 @@ import java.util.List;
 import org.sewingLives.fabiLove.model.Produtos;
 import org.sewingLives.fabiLove.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/produtos")
-@CrossOrigin("*")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 public class ProdutosController {
 	
 	//-----------------injeção do repositorio produto----------------------------//
@@ -41,4 +44,10 @@ public class ProdutosController {
 	public ResponseEntity<List<Produtos>> GetByNome(@PathVariable String nome){
 		return ResponseEntity.ok(produtosRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
+	//-----------------CRUD Post-------------------------------//
+	@PostMapping("/post")
+	public ResponseEntity<Produtos> post(@RequestBody Produtos produtos){
+		return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produtos));
+	}
+	//----------------CRUD Put------------------------------//
 }

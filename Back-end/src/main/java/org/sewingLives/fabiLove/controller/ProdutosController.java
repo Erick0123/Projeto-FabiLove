@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +30,7 @@ public class ProdutosController {
 	
 	//Buscando todos, por id ou por nome
 	
-	@GetMapping("/todos")
+	@GetMapping
 	public ResponseEntity<List<Produtos>> getAll(){
 		return ResponseEntity.ok(produtosRepository.findAll());
 	}
@@ -50,4 +52,21 @@ public class ProdutosController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produtos));
 	}
 	//----------------CRUD Put------------------------------//
+	@PutMapping
+	public Produtos put(@RequestBody Produtos produtos, @PathVariable Long id){
+	 produtos.setId(id);
+	 produtosRepository.save(produtos);
+	 return produtos;
+
+		
+	}
+	@DeleteMapping("/delete/{id}")
+	public String delete (@PathVariable Long id){
+		try{
+			produtosRepository.deleteById(id);
+			return "Deletado!";
+		}catch(Exception e){
+			return "Erro: "+e.getLocalizedMessage();
+		}
+	}
 }

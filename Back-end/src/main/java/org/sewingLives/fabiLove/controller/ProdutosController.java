@@ -30,7 +30,7 @@ public class ProdutosController {
 	
 	//Buscando todos, por id ou por nome
 	
-	@GetMapping
+	@GetMapping("/todos")
 	public ResponseEntity<List<Produtos>> getAll(){
 		return ResponseEntity.ok(produtosRepository.findAll());
 	}
@@ -52,7 +52,7 @@ public class ProdutosController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produtos));
 	}
 	//----------------CRUD Put------------------------------//
-	@PutMapping
+	@PutMapping("/put/{id}")
 	public Produtos put(@RequestBody Produtos produtos, @PathVariable Long id){
 	 produtos.setId(id);
 	 produtosRepository.save(produtos);

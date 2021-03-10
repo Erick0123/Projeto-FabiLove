@@ -1,5 +1,4 @@
 package org.sewingLives.fabiLove.model;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;

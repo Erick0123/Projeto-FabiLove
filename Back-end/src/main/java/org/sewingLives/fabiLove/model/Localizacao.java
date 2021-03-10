@@ -42,8 +42,8 @@ public class Localizacao {
 		@JoinColumn(name="usuarios_id")
 		@JsonIgnoreProperties("endereco")
 		private Usuarios usuarios;
-		
-		//---------------GETTERS AND SETTERS-------------//
+
+			//---------------GETTERS AND SETTERS-------------//
 
 		public Long getId() {
 			return id;
@@ -53,12 +53,12 @@ public class Localizacao {
 			this.id = id;
 		}
 
-		public String getLugar() {
+		public String getNome() {
 			return nome;
 		}
 
-		public void setLugar(String lugar) {
-			this.nome = lugar;
+		public void setNome(String nome) {
+			this.nome = nome;
 		}
 
 		public String getEstado() {
@@ -91,8 +91,6 @@ public class Localizacao {
 
 		public void setUsuarios(Usuarios usuarios) {
 			this.usuarios = usuarios;
-		}
-		
-		
+		}		
 
 }

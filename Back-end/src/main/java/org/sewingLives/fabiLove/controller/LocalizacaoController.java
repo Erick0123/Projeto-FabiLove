@@ -50,7 +50,7 @@ public class LocalizacaoController {
 			.map(resp->{
 				resp.setCep(localizacao.getCep());
 				resp.setEstado(localizacao.getEstado());
-				resp.setLugar(localizacao.getLugar());
+				resp.setNome(localizacao.getNome());
 				resp.setNumero(localizacao.getNumero());
 			Localizacao updated = localizacaoRepository.save(resp);
 			return ResponseEntity.ok().body(updated);
